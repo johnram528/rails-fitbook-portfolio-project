@@ -3,11 +3,11 @@ notes - Fitbook
 Models:
 
 Users - devise, 
-has_many :workouts
+has_many :routines
 
-Workouts - name, count, time,  
+Routine - name, count, time,  
 
-has_many :workout_exercises
+has_many :routine_exercises
 has_many :exercises, through: :workout_exercises
 belongs_to :user
 
@@ -15,12 +15,12 @@ belongs_to :user
 
 Exercise - name, reps, muscles
 
-has_many :workout_exercises
-has_many :workouts, through: :workout_exercises
+has_many :routine_exercises
+has_many :routine, through: :workout_exercises
 
 Workout_Exercise - 
 
-belongs_to :workout
+belongs_to :routine
 belongs_to :exercise
 
 
