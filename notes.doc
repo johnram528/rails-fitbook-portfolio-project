@@ -23,9 +23,9 @@ Routine_Exercise - routine_id, exercise_id
 belongs_to :routine
 belongs_to :exercise
 
-2. Set root 
-3. Create nav partial
-4. Create header partial
+2. Set root # DONE
+3. Create nav partial # DONE
+4. Create messages partial
 5. Update layout view
 6. Routine Controller
 7. Routine views
