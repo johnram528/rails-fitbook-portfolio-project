@@ -18,10 +18,22 @@ Exercise - name, reps, muscles, instructions, rep_time
 has_many :routine_exercises
 has_many :routines, through: :workout_exercises
 
-Workout_Exercise - routine_id, exercise_id
+Routine_Exercise - routine_id, exercise_id
 
 belongs_to :routine
 belongs_to :exercise
+
+2. Set root 
+3. Create nav partial
+4. Create header partial
+5. Update layout view
+6. Routine Controller
+7. Routine views
+8. Exercise Controller
+9. Exercise views
+10. Users Controller
+11. User views
+
 
 
 
