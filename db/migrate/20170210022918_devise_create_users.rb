@@ -32,6 +32,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       t.timestamps null: false
+      t.integer :height
+      t.integer :weight
+      t.integer :body_fat
     end
 
     add_index :users, :email,                unique: true
