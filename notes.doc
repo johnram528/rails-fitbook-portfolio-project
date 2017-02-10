@@ -25,8 +25,9 @@ belongs_to :exercise
 
 2. Set root # DONE
 3. Create nav partial # DONE
-4. Create messages partial
-5. Update layout view
+4. Create messages partial # DONE
+5. Update layout view # DONE
+6A. User#Edit View # Done
 6. Routine Controller
 7. Routine views
 8. Exercise Controller
