@@ -29,6 +29,10 @@ belongs_to :exercise
 5. Update layout view # DONE
 6A. User#Edit View # Done
 6. Routine Controller
+ -Routine Show #Initial Complete
+ -Routine New/Create
+ -Routine Index
+ -Routine Edit/Update
 7. Routine views
 8. Exercise Controller
 9. Exercise views

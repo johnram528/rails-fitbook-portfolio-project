@@ -9,6 +9,7 @@ class RoutinesController < ApplicationController
   end
 
   def show
+    @routine = Routine.find_by(id: params[:id])
   end
 
   def edit
