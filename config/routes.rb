@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :routines
+  resources :exercises
+  resources :users, only: [:new, :create, :edit, :update, :show]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
