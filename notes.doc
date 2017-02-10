@@ -5,20 +5,20 @@ Models:
 Users - devise, 
 has_many :routines
 
-Routine - name, count, time,  
+Routine - name, estimated_time 
 
 has_many :routine_exercises
-has_many :exercises, through: :workout_exercises
+has_many :routines, through: :workout_exercises
 belongs_to :user
 
 
 
-Exercise - name, reps, muscles
+Exercise - name, reps, muscles, instructions, rep_time
 
 has_many :routine_exercises
-has_many :routine, through: :workout_exercises
+has_many :routines, through: :workout_exercises
 
-Workout_Exercise - 
+Workout_Exercise - routine_id, exercise_id
 
 belongs_to :routine
 belongs_to :exercise
