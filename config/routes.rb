@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :routines
   resources :exercises
-  resources :users, only: [:new, :create, :edit, :update, :show]
+  resources :users, only: [:edit, :update, :show]
 
   root 'users#edit'
   
