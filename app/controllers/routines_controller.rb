@@ -36,6 +36,11 @@ class RoutinesController < ApplicationController
   end
 
   def destroy
+    if @routine.user = @user
+      @routine.destroy
+    else
+      redirect_to @routine 
+    end
   end
 
   private
