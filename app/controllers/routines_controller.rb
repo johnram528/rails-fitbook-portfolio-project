@@ -1,6 +1,8 @@
 class RoutinesController < ApplicationController
   before_action :set_user, :set_routine
   skip_before_action :set_routine, only: [:new, :create, :index]
+  skip_before_action :set_user, only: [:index]
+
   def index
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
