@@ -1,12 +1,12 @@
 <h1><%= @routine.name.capitalize %> Workout</h1>
 <%@routine.exercises.each do |exercise| %>
 <h2><%=link_to exercise.name.pluralize.capitalize, exercise_path(exercise)%></h2>
-<ul>
-  <li>Reps: <%=exercise.reps%></li>
-  <li>Instructions: <%=exercise.instructions%></li>
-  <li>Estimated Time: <%=exercise.reps * exercise.rep_time%> seconds</li>
-  <li>Target Muscles: <%=exercise.muscles%></li>
-</ul>
+  <ul>
+    <li>Reps: <%=exercise.reps%></li>
+    <li>Instructions: <%=exercise.instructions%></li>
+    <li>Estimated Time: <%=exercise.show_estimated_time%></li>
+    <li>Target Muscles: <%=exercise.muscles%></li>
+  </ul>
 <%end%>
 <p>Total Estimated Workout Time: 2 Minutes</p>
 
