@@ -8,7 +8,12 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    raise.params.inspect
+    @routine = Routine.new(routine_params)
+    if @routine.save
+      redirect_to @routine
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -23,4 +28,9 @@ class RoutinesController < ApplicationController
 
   def destroy
   end
+
+  private
+    def routine_params
+      params.require(:routine).permit(:name, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles] )
+    end
 end
