@@ -10,10 +10,14 @@ class Routine < ActiveRecord::Base
   end
 
   def show_estimated_time
-    if estimated_time > 60
-      "#{estimated_time/60} min"
+    if !exercises.empty?
+      if estimated_time > 60
+        "#{estimated_time/60} min"
+      else
+        "#{estimated_time} sec"
+      end
     else
-      "#{estimated_time} sec"
+      0
     end
   end
 

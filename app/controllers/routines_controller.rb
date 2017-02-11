@@ -1,5 +1,7 @@
 class RoutinesController < ApplicationController
-  before_action :set_user
+  before_action :set_user, :set_routine
+  skip_before_action :set_routine, only: [:new, :create, :index]
+  skip_before_action :set_user, only: [:index]
   def index
     if params[:user_id]
       @routines = @user.routines
@@ -23,7 +25,7 @@ class RoutinesController < ApplicationController
   end
 
   def show
-    @routine = Routine.find_by(id: params[:id])
+    # @routine = Routine.find_by(id: params[:id])
   end
 
   def edit
@@ -47,4 +49,10 @@ class RoutinesController < ApplicationController
     def set_user
       @user ||= User.find_by(id: current_user.id)
     end
+
+    def set_routine
+      @routine = Routine.find_by(id: params[:id])
+    end
+
+
 end
