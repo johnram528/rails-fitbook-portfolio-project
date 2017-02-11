@@ -1,0 +1,20 @@
+<%= form_for @routine do |f|%>
+  <%= f.label :name, "Workout Name" %>
+  <%= f.text_field :name %><br><br>
+  <%= f.fields_for :exercises do |ff| %>
+    <div>
+      <%= ff.label :name, "Exercise"%>
+      <%= ff.text_field :name%><br>
+      <%= ff.label :reps %>
+      <%= ff.text_field :reps%><br>
+      <%= ff.label :instructions %>
+      <%= ff.text_area :instructions %><br>
+      <%= ff.label :muscles, "Target Muscles"%>
+      <%= ff.text_field :muscles%><br>
+      <%= ff.label :rep_time, "Estimated time per rep(in seconds)"%>
+      <%= ff.text_field :rep_time%><br>
+    <br><br>  
+    </div>
+  <% end %>
+  <%= f.submit %>
+<%end%>
