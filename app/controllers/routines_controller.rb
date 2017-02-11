@@ -14,7 +14,6 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: current_user.id)
     @user.routines.build(routine_params)
     if @user.save
       redirect_to routine_path(@user.routines.last)
@@ -32,6 +31,9 @@ class RoutinesController < ApplicationController
   end
 
   def update
+    @routine = Routine.find_by(id: params[:id])
+    @routine.update(routine_params)
+    redirect_to routine_path(@routine)
   end
 
   def destroy
