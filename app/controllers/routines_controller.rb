@@ -3,9 +3,12 @@ class RoutinesController < ApplicationController
   end
 
   def new
+    @routine = Routine.new
+    5.times { @routine.exercises.build}
   end
 
   def create
+    raise.params.inspect
   end
 
   def show

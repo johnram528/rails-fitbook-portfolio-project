@@ -14,3 +14,10 @@
  *= require_self
  */
 @import "bootstrap";
+label{
+  width: 10em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
