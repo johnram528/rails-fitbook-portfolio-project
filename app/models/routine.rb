@@ -14,4 +14,12 @@ class Routine < ActiveRecord::Base
       "#{estimated_time} sec"
     end
   end
+
+  def muscles
+    muscles = []
+    exercises.pluck(:muscles).each do |muscle|
+      muscle.scan(/\w+/) {|musc| muscles << musc}
+    end
+    muscles.join(", ")
+  end
 end
