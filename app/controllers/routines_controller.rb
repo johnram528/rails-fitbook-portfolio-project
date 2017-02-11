@@ -4,6 +4,7 @@ class RoutinesController < ApplicationController
   skip_before_action :set_user, only: [:index]
   def index
     if params[:user_id]
+      @user = find
       @routines = @user.routines
     else
       @routines = Routine.all
@@ -25,7 +26,6 @@ class RoutinesController < ApplicationController
   end
 
   def show
-    # @routine = Routine.find_by(id: params[:id])
   end
 
   def edit

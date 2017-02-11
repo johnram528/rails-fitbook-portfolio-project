@@ -32,9 +32,9 @@ belongs_to :exercise
  -Routine Show # DONE
   -add time methods to routine and exercise models #DONE
  -Routine New/Create #DONE
- -Routine Index
- -Routine Edit/Update
-7. Routine views
+ -Routine Index #DONE 
+ -Routine Edit/Update #DONE
+7. Routine views #DONE
 8. Exercise Controller
 9. Exercise views
 10. Users Controller
