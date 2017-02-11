@@ -29,11 +29,9 @@ class RoutinesController < ApplicationController
   end
 
   def edit
-    @routine = Routine.find_by(id: params[:id])
   end
 
   def update
-    @routine = Routine.find_by(id: params[:id])
     @routine.update(routine_params)
     redirect_to routine_path(@routine)
   end
