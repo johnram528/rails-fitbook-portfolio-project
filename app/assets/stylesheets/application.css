@@ -15,9 +15,9 @@
  */
 @import "bootstrap";
 label{
-  width: 10em;
+  width: 8em;
   float: left;
   text-align: right;
-  margin-right: 0.5em;
+  margin-right: .5em;
   display: block
 }

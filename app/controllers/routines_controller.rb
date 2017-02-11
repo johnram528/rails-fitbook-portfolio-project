@@ -20,6 +20,7 @@ class RoutinesController < ApplicationController
     if @user.save
       redirect_to routine_path(@user.routines.last)
     else
+      flash[:message] = "Please fill in required fields."
       redirect_to new_routine_path
     end
   end
