@@ -1,5 +1,11 @@
 class RoutinesController < ApplicationController
+  before_action :set_user
   def index
+    if params[:user_id]
+      @routines = @user.routines
+    else
+      @routines = Routine.all
+    end
   end
 
   def new
@@ -33,5 +39,9 @@ class RoutinesController < ApplicationController
   private
     def routine_params
       params.require(:routine).permit(:name, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles] )
+    end
+
+    def set_user
+      @user ||= User.find_by(id: current_user.id)
     end
 end
