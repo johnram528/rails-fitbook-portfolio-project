@@ -35,14 +35,14 @@ belongs_to :exercise
  -Routine Index #DONE 
  -Routine Edit/Update #DONE
 7. Routine views #DONE
-8. Exercise Controller
-9. Exercise views
-14. add BMI Method to user page
+8. Exercise Controller #DONE
+9. Exercise views#DONE
+14. add BMI Method to user model
 10. Users Controller
 11. User views
 12. Add all links to nav partial
 13. change root
-14. add BMI Method to user page
+14. omniauth
 
 
 

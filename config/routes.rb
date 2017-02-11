@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users 
   resources :routines
-  resources :exercises, only: {:index, :show}
+  resources :exercises, only: [:index, :show]
   resources :users, only: [:edit, :update, :show] do
     resources :routines
   end 
