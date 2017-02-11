@@ -1,10 +1,9 @@
 class RoutinesController < ApplicationController
   before_action :set_user, :set_routine
   skip_before_action :set_routine, only: [:new, :create, :index]
-  skip_before_action :set_user, only: [:index]
   def index
     if params[:user_id]
-      @user = find
+      @user = User.find_by(id: params[:user_id])
       @routines = @user.routines
     else
       @routines = Routine.all
@@ -45,7 +44,11 @@ class RoutinesController < ApplicationController
     end
 
     def set_user
-      @user ||= User.find_by(id: current_user.id)
+      if current_user
+       @user ||= User.find_by(id: current_user.id)
+      else
+      redirect_to new_user_session_path 
+      end
     end
 
     def set_routine
