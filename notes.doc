@@ -29,9 +29,9 @@ belongs_to :exercise
 5. Update layout view # DONE
 6A. User#Edit View # Done
 6. Routine Controller
- -Routine Show #Initial Complete
-  -add time methods to routine and exercise models
- -Routine New/Create
+ -Routine Show # DONE
+  -add time methods to routine and exercise models #DONE
+ -Routine New/Create #DONE
  -Routine Index
  -Routine Edit/Update
 7. Routine views
