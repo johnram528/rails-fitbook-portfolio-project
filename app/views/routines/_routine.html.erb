@@ -9,4 +9,6 @@
     <li>Target Muscles: <%=exercise.muscles%></li>
   </ul>
 <%end%>
-<p>Total Estimated Workout Time: <%=routine.show_estimated_time%></p><br><br>
+<p>Total Estimated Workout Time: <%=routine.show_estimated_time%></p>
+<%=link_to "Delete", routine_path(routine), method: :delete unless routine.user_id != current_user.id%><br><br>
+

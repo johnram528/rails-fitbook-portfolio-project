@@ -38,6 +38,7 @@ class RoutinesController < ApplicationController
   def destroy
     if @routine.user = @user
       @routine.destroy
+      redirect_to user_routines_path(@user, @routine)
     else
       redirect_to @routine 
     end
