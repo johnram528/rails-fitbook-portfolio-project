@@ -4,11 +4,15 @@ class RoutinesController < ApplicationController
   skip_before_action :set_user, only: [:index]
 
   def index
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-      @routines = @user.routines
+    if current_user
+      if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @routines = @user.routines
+      else
+        @routines = Routine.all
+      end
     else
-      @routines = Routine.all
+      redirect_to new_user_session_path
     end
   end
 
