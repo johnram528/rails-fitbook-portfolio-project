@@ -3,7 +3,7 @@ class Routine < ActiveRecord::Base
   has_many :exercises, through: :routine_exercises
   belongs_to :user
 
-  accepts_nested_attributes_for :exercises, :allow_destroy => true, :reject_if => :all_blank
+  # accepts_nested_attributes_for :exercises, :allow_destroy => true, :reject_if => :all_blank
   validates_presence_of :exercises
 
   def estimated_time
@@ -28,6 +28,13 @@ class Routine < ActiveRecord::Base
       muscle.scan(/\w+/) {|musc| muscles << musc}
     end
     muscles.join(", ")
+  end
+
+  def exercises_attributes=(exercises)
+    exercises.values.each do |exercise|
+      self.exercises.build(exercise) unless exercise.values.include?("")
+      self.save
+    end
   end
 
 end
