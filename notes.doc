@@ -42,10 +42,10 @@ belongs_to :exercise
 11. User views#Done
 12. Add all links to nav partial#Done
 14. omniauth #Done
-15. add edit button to user show
-16. add attribute to join table
-17. display validation errors
+17. display validation errors #DONE
 18. add validations for profile view if empty user info
+19. custom nested attribute
+20.. refactor
 
 
 

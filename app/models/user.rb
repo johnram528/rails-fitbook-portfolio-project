@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def incomplete_profile?
+    height.nil? || weight.nil? 
+  end 
+
 end
 
 
