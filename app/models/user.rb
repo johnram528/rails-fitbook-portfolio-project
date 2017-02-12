@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :routines
+  has_many :routines, inverse_of: :user
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -22,17 +22,9 @@ class User < ActiveRecord::Base
     bmi.round
   end
 
-  def health_status
-    if bmi > 18 && bmi < 25
-      "You're at at a healthy weight. Keep up the good work!"
-    else 
-      "Every workout counts. Keep up the good work!"
-    end
-  end
-
   def incomplete_profile?
     height.nil? || weight.nil? 
-  end 
+  end  
 
 end
 

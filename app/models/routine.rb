@@ -1,7 +1,7 @@
 class Routine < ActiveRecord::Base
   has_many :routine_exercises
   has_many :exercises, through: :routine_exercises
-  belongs_to :user
+  belongs_to :user, inverse_of: :routines
 
   # accepts_nested_attributes_for :exercises, :allow_destroy => true, :reject_if => :all_blank
   validates_presence_of :exercises

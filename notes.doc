@@ -43,8 +43,8 @@ belongs_to :exercise
 12. Add all links to nav partial#Done
 14. omniauth #Done
 17. display validation errors #DONE
-18. add validations for profile view if empty user info
-19. custom nested attribute
+18. add validations for profile view if empty user info #DONE
+19. custom nested attribute #DONE
 20.. refactor
 
 

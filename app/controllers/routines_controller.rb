@@ -22,8 +22,9 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @user.routines.build(routine_params)
-    if @user.save
+    @routine = Routine.new(routine_params)
+    if @routine.save
+      @user.routines << @routine
       redirect_to routine_path(@user.routines.last)
     else
       flash[:message] = "Please fill in required fields for at least one exercise."
