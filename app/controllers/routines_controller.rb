@@ -22,6 +22,7 @@ class RoutinesController < ApplicationController
   end
 
   def create
+    raise.params.inspect
     @routine = Routine.new(routine_params)
     if @routine.save
       @user.routines << @routine

@@ -12,12 +12,14 @@
       <%= exercise.text_field :muscles%><br>
       <%= exercise.label :rep_time, "Estimated time per rep(in seconds)"%>
       <%= exercise.text_field :rep_time%><br>
-  <%= f.fields_for :routines_exercises do |join| %><br>
+  
+  <%= exercise.fields_for :routines_exercises do |join| %><br>
     <%= join.label :reps %>
     <%= join.text_field :reps %>
     </div>
     <br><br><br> 
-    <% end %>
-    <% end %>
+    <%end%>
+
+  <% end %>
   <%= f.submit %>
 <%end%>

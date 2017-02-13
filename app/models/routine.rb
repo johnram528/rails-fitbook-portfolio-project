@@ -20,8 +20,12 @@ class Routine < ActiveRecord::Base
   def exercises_attributes=(exercises)
     exercises.values.each do |exercise|
       self.exercises.build(exercise) unless exercise.values.include?("")
-      self.save
+      self.save 
     end
+  end
+
+  def exercise_reps=(reps)
+    return reps
   end
 
 end
