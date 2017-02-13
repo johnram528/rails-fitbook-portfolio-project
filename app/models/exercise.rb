@@ -8,6 +8,7 @@ class Exercise < ActiveRecord::Base
     time = reps * rep_time
   end
 
+
 end
 
 

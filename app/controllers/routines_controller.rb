@@ -22,7 +22,6 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    raise.params.inspect
     @routine = Routine.new(routine_params)
     if @routine.save
       @user.routines << @routine
@@ -56,7 +55,7 @@ class RoutinesController < ApplicationController
 
   private
     def routine_params
-      params.require(:routine).permit(:name, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles] )
+      params.require(:routine).permit(:name, :user_id, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles, :routines_exercises => [:reps]] )
     end
 
     def set_user
