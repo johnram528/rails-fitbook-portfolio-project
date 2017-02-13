@@ -1,5 +1,6 @@
 
 <%= form_for @routine do |f|%>
+  <%= render partial: 'layouts/error_messages', locals: { object: f.object} %>
   <%= f.label :name, "Workout Name" %>
   <%= f.text_field :name %><br><br>
   <%= f.fields_for :exercises do |exercise| %>
@@ -11,11 +12,19 @@
       <%= exercise.label :muscles, "Target Muscles"%>
       <%= exercise.text_field :muscles%><br>
       <%= exercise.label :reps %>
-      <%= exercise.text_field :reps %><br>
+      <%= exercise.text_field :reps %><br>4
       <%= exercise.label :rep_time, "Estimated time per rep(in seconds)"%>
       <%= exercise.text_field :rep_time%><br>
+          <%end%>
+
+  
+  <%= f.fields_for :routine_exercises do |join| %><br>
+    <%= join.label :reps %>
+    <%= join.text_field :reps %>
     </div>
     <br><br><br> 
     <%end%>
+
+  <% end %>
   <%= f.submit %>
 <%end%>
