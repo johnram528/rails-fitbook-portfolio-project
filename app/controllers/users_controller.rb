@@ -42,10 +42,6 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id]) 
     end
 
-    def has_access?
-      current_user && current_user.id == @user.id
-    end
-
     def blank_profile
       has_access? && @user.incomplete_profile?
     end

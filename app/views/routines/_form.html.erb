@@ -2,20 +2,22 @@
 <%= form_for @routine do |f|%>
   <%= f.label :name, "Workout Name" %>
   <%= f.text_field :name %><br><br>
-  <%= f.fields_for :exercises do |ff| %>
+  <%= f.fields_for :exercises do |exercise| %>
     <div>
-      <%= ff.label :name, "Exercise"%>
-      <%= ff.text_field :name%><br>
-      <%= ff.label :reps %>
-      <%= ff.text_field :reps%><br>
-      <%= ff.label :instructions %>
-      <%= ff.text_area :instructions %><br>
-      <%= ff.label :muscles, "Target Muscles"%>
-      <%= ff.text_field :muscles%><br>
-      <%= ff.label :rep_time, "Estimated time per rep(in seconds)"%>
-      <%= ff.text_field :rep_time%><br>
-    <br><br>  
+      <%= exercise.label :name, "Exercise"%>
+      <%= exercise.text_field :name%><br>
+      <%= exercise.label :instructions %>
+      <%= exercise.text_area :instructions %><br>
+      <%= exercise.label :muscles, "Target Muscles"%>
+      <%= exercise.text_field :muscles%><br>
+      <%= exercise.label :rep_time, "Estimated time per rep(in seconds)"%>
+      <%= exercise.text_field :rep_time%><br>
+  <%= f.fields_for :routines_exercises do |join| %><br>
+    <%= join.label :reps %>
+    <%= join.text_field :reps %>
     </div>
-  <% end %>
+    <br><br><br> 
+    <% end %>
+    <% end %>
   <%= f.submit %>
 <%end%>
