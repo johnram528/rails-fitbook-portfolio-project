@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         flash[:message] = "Must enter your stats before viewing profile."
         redirect_to root_path
       elsif !has_access?
-        flash[:message] = "Access denied."
+        access_denied
         redirect_to user_path(current_user)
       else
         render "show"

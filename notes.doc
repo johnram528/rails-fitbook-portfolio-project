@@ -51,13 +51,13 @@ belongs_to :exercise
    -Controllers#Done
    -Models #Done
   -Routines
-   -Views 
-   -Controllers
+   -Views #DONE
+   -Controllers #DONE
    -Models 
   -Exercises
-   -Views 
-   -Controllers
-   -Models 
+   -Views #DONE
+   -Controllers #DONE
+   -Models #DONE
   
 
 

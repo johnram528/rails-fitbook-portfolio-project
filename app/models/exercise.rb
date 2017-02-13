@@ -8,13 +8,6 @@ class Exercise < ActiveRecord::Base
     time = reps * rep_time
   end
 
-  def show_estimated_time
-    if estimated_time > 60
-      "#{estimated_time/60} min"
-    else
-      "#{estimated_time} sec"
-    end
-  end 
 end
 
 

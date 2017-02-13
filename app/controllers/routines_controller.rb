@@ -48,6 +48,7 @@ class RoutinesController < ApplicationController
       @routine.destroy
       redirect_to user_routines_path(@user, @routine)
     else
+      access_denied
       redirect_to @routine 
     end
   end
