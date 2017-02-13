@@ -45,7 +45,7 @@ belongs_to :exercise
 17. display validation errors #DONE
 18. add validations for profile view if empty user info #DONE
 19. custom nested attribute #DONE
-20. refactor
+20. refactor #DONE
   -Users
    -Views #Done
    -Controllers#Done

@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
     flash[:message] = "Access denied."
   end
 
+  def has_access?
+      current_user && current_user.id == @user.id
+  end
+
   
 end
