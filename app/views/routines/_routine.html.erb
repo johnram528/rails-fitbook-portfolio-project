@@ -2,14 +2,8 @@
 <p><%=link_to routine.user.email, user_routines_path(routine.user)%></p>
 <p>TARGET: <%=routine.muscles%></p>
 <%routine.exercises.each do |exercise| %>
-<h2><%=link_to exercise.name.pluralize.capitalize, exercise_path(exercise)%></h2>
-  <ul>
-    <li>Reps: <%=exercise.reps%></li>
-    <li>Instructions: <%=exercise.instructions%></li>
-    <li>Estimated Time: <%=exercise.show_estimated_time%></li>
-    <li>Target Muscles: <%=exercise.muscles%></li>
-  </ul>
-<%end%>
-<p>Total Estimated Workout Time: <%=routine.show_estimated_time%></p>
-<%=link_to "Delete", routine_path(routine), method: :delete unless routine.user_id != current_user.id%><br><br>
+  <%= render partial: 'exercises/exercise', locals: { exercise: exercise} %>
+<% end %>
+  <p>Total Estimated Workout Time: <%=routine.show_estimated_time%></p>
+  <%=link_to "Delete", routine_path(routine), method: :delete unless routine.user_id != current_user.id%><br><br>
 
