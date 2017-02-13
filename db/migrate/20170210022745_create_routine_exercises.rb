@@ -3,6 +3,7 @@ class CreateRoutineExercises < ActiveRecord::Migration
     create_table :routine_exercises do |t|
       t.integer :routine_id
       t.integer :exercise_id
+      t.integer :reps
 
       t.timestamps null: false
     end
