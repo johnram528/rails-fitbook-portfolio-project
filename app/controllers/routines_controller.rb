@@ -23,6 +23,12 @@ class RoutinesController < ApplicationController
 
   def create
     @routine = Routine.new(routine_params)
+    @routine.exercises.each do |exercise|
+      exercise.routine_exercises.each do |join| 
+        join.update(routine: @routine, reps: exercise.reps)
+      end
+    end
+
     if @routine.save
       @user.routines << @routine
       redirect_to routine_path(@user.routines.last)
@@ -55,7 +61,7 @@ class RoutinesController < ApplicationController
 
   private
     def routine_params
-      params.require(:routine).permit(:name, :user_id, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles, :routines_exercises => [:reps]] )
+      params.require(:routine).permit(:name, :user_id, :exercises_attributes => [:name, :reps, :instructions, :rep_time, :muscles, :routine_exercises_attributes => [:reps]] )
     end
 
     def set_user

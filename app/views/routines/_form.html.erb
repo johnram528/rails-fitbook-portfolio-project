@@ -11,20 +11,13 @@
       <%= exercise.text_area :instructions %><br>
       <%= exercise.label :muscles, "Target Muscles"%>
       <%= exercise.text_field :muscles%><br>
-      <%= exercise.label :reps %>
-      <%= exercise.text_field :reps %><br>4
       <%= exercise.label :rep_time, "Estimated time per rep(in seconds)"%>
-      <%= exercise.text_field :rep_time%><br>
-          <%end%>
-
-  
-  <%= f.fields_for :routine_exercises do |join| %><br>
-    <%= join.label :reps %>
-    <%= join.text_field :reps %>
+      <%= exercise.number_field :rep_time, min: 1%><br><br>
+      <%= exercise.label :reps %>
+      <%= exercise.number_field :reps, min: 1 %>
     </div>
     <br><br><br> 
-    <%end%>
-
+   
   <% end %>
   <%= f.submit %>
 <%end%>
