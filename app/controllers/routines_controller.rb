@@ -5,12 +5,7 @@ class RoutinesController < ApplicationController
 
   def index
     if current_user
-      if params[:user_id]
-        @user = User.find_by(id: params[:user_id])
-        @routines = @user.routines
-      else
-        @routines = Routine.all
-      end
+      user_routines
     else
       redirect_to new_user_session_path
     end
@@ -28,12 +23,10 @@ class RoutinesController < ApplicationController
         join.update(routine: @routine, reps: exercise.reps)
       end
     end
-
     if @routine.save
       @user.routines << @routine
       redirect_to routine_path(@user.routines.last)
     else
-      # flash[:message] = "Please fill in required fields for at least one exercise."
       render 'new'
     end
   end
@@ -46,12 +39,7 @@ class RoutinesController < ApplicationController
 
   def update
     if has_access?
-      @routine.update(routine_params)
-        if !@routine.errors?
-        redirect_ routine_path(@routine)
-      else
-        render 'edit'
-      end
+      updatable
     else
       access_denied
       redirect_to @routine
@@ -85,5 +73,24 @@ class RoutinesController < ApplicationController
       @routine = Routine.find_by(id: params[:id])
     end
 
+    def user_routines
+      if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @routines = @user.routines
+      else
+        @routines = Routine.all
+      end
+    end
+
+    def updatable 
+      @routine.update(routine_params)
+        if !@routine.errors?
+        redirect_ routine_path(@routine)
+      else
+        render 'edit'
+      end
+    end
+
+    
 
 end

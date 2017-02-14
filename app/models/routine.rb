@@ -25,4 +25,12 @@ class Routine < ActiveRecord::Base
     end
   end
 
+  def add_exercises
+    exercises.each do |exercise|
+      exercise.routine_exercises.each do |join| 
+        join.update(routine: @routine, reps: exercise.reps)
+      end
+    end
+  end
+
 end
