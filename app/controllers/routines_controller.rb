@@ -33,8 +33,8 @@ class RoutinesController < ApplicationController
       @user.routines << @routine
       redirect_to routine_path(@user.routines.last)
     else
-      flash[:message] = "Please fill in required fields for at least one exercise."
-      redirect_to new_routine_path
+      # flash[:message] = "Please fill in required fields for at least one exercise."
+      render 'new'
     end
   end
 
@@ -45,8 +45,17 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    @routine.update(routine_params)
-    redirect_to routine_path(@routine)
+    if has_access?
+      @routine.update(routine_params)
+        if !@routine.errors?
+        redirect_ routine_path(@routine)
+      else
+        render 'edit'
+      end
+    else
+      access_denied
+      redirect_to @routine
+    end
   end
 
   def destroy

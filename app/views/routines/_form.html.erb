@@ -1,9 +1,11 @@
 
 <%= form_for @routine do |f|%>
-  <%= render partial: 'layouts/error_messages', locals: { object: f.object} %>
+  <%= render partial: 'layouts/error_messages', locals: {object: f.object} %>
   <%= f.label :name, "Workout Name" %>
   <%= f.text_field :name %><br><br>
   <%= f.fields_for :exercises do |exercise| %>
+    <%= render 'layouts/error_messages', object: f.object %>
+
     <div>
       <%= exercise.label :name, "Exercise"%>
       <%= exercise.text_field :name%><br>
