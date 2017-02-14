@@ -59,9 +59,7 @@ belongs_to :exercise
    -Controllers #DONE
    -Models #DONE
 22. check validation errors #DONE
-23. Refactor
-  -clean controllers
-24. add edit button
+23. Refactor #Done
 
 
 
